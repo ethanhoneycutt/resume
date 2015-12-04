@@ -10,8 +10,9 @@ var routes = require('./routes/index');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views/respond_15_template_2446'));
-//app.register('.html', require('jade'));
+app.set('views', path.join(__dirname, 'views/respond_15_template_2446/'));
+//app.engine('.html', require('jade'));
+app.engine('.html', require('ejs').renderFile);
 
 // uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/favicon.ico'));
