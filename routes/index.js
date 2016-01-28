@@ -1,13 +1,15 @@
 var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
+var config = require('./config.json');
+
 var smtpConfig = {
     host: 'smtp.mail.yahoo.com',
     port: 465,
-    secure: true, // use SSL
+    secure: true,
     auth: {
-        user: 'ethan.honeycutt13@yahoo.com',
-        pass: 'Yahoo123'
+        user: config.email,
+        pass: config.password
     }
 };
 
