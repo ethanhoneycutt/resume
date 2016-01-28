@@ -1,6 +1,30 @@
 <!DOCTYPE html>
+<style>
+.frame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    -ms-transform: scale(0.25);
+    -moz-transform: scale(0.25);
+    -o-transform: scale(0.25);
+    -webkit-transform: scale(0.25);
+    transform: scale(0.25);
+    
+    -ms-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+</style>
 <html lang="en">
 <head>
+  <script src="jquery.js"></script> 
+    <script> 
+    $(function(){
+      $("#includedContent").load("/projectsFolder/members/index.html"); 
+    });
+    </script>
 <title>Ethan Honeycutt | Projects</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,15 +52,9 @@
 <div class="container">
   <hr>
   <div class="row">
-    <div class="span4">
-      <h3>Filler <small> By <a href="#">Srawat56</a></small></h3>
-      <a rel="lightbox" href="img/image3.png"><img src="img/image3.png" alt=""></a> </div>
-    <div class="span4">
-      <h3> Nature's Valley<small> By <a href="#">Paul venter</a></small> </h3>
-      <a rel="lightbox" href="img/thumb2.jpg"><img src="img/thumb2.jpg" alt=""></a></div>
-    <div class="span4">
-      <h3>Deep Sky <small> By <a href="#">Srawat56</a></small></h3>
-      <a rel="lightbox" href="img/thumb1.jpg"><img src="img/thumb1.jpg" alt=""></a> </div>
+    <div class="span12">
+      <iframe class="frame" src="/projectsFolder/members/index.html" width="100%" height="100%"> </iframe>
+    </div>
   </div>
   <div class="row">
     <div class="span4">
@@ -82,11 +100,10 @@
         <div class="is-padded">
           <h2>Want to get in touch?</h2>
           <hr>
-          <p>Here are three easy ways to get in contact with me:</p>
+          <p>Here are two easy ways to get in contact with me:</p>
           <br>
           <ol>
             <li><p>Shoot me an email at ethan.honeycutt@yahoo.com</p></li>
-            <li><p>Give me a call at (512) 633-0789</p></li>
             <li><p>Leave me a message on the Contact page of this site</p></li>
           </ol>
           <br>
