@@ -10,7 +10,7 @@ var smtpConfig = {
         pass: 'Yahoo123'
     }
 };
-//var transporter = nodemailer.createTransport("SMTP", smtpConfig);
+
 var transporter = nodemailer.createTransport('smtps://ethan.honeycutt13%40yahoo.com:Yahoo123@smtp.mail.yahoo.com');
 
 router.get('/', function(req, res, next) {
@@ -37,13 +37,13 @@ router.get('/about', function(req, res, next) {
 	res.render('about.html');
 });
 
-router.get('/send', function(req, res, next) {
-	
+router.post('/send', function(req, res, next) {
+
 	var mailOptions = {
 		from: 'ethan.honeycutt13@yahoo.com', // sender address
 		to: 'ethan.honeycutt13@yahoo.com', // list of receivers
-		subject: req.subject, // Subject line
-		text: req.message + ' ' + req.name + ' ' + req.email, // plaintext body
+		subject: req.body.subject, // Subject line
+		text: req.body.message + ' From: ' + req.body.name + ' Email: ' + req.body.email, // plaintext body
 		html: '' // html body
 	};
 
@@ -54,7 +54,7 @@ router.get('/send', function(req, res, next) {
 		console.log('Message sent: ' + info.response);
 		res.render('contact.html');
 	});
-	
+
 });
 
 module.exports = router;
