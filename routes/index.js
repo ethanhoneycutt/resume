@@ -3,17 +3,7 @@ var router = express.Router();
 var nodemailer = require('nodemailer');
 var config = require('./config.json');
 
-var smtpConfig = {
-    host: 'smtp.mail.yahoo.com',
-    port: 465,
-    secure: true,
-    auth: {
-        user: config.email,
-        pass: config.password
-    }
-};
-
-var transporter = nodemailer.createTransport('smtps://ethan.honeycutt13%40yahoo.com:Yahoo123@smtp.mail.yahoo.com');
+var transporter = nodemailer.createTransport('smtps://' + config.email + ':' + config.password + '@smtp.mail.yahoo.com');
 
 router.get('/', function(req, res, next) {
 	res.render('index.html');
