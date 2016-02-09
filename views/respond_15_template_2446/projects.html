@@ -59,13 +59,16 @@
   </div>
   <hr>
   <div id="poker" class="row">
-    <div class="span12">
+    <div class="span9">
       <div class="well">
         <h1>Poker Automation</h1>
         <h4>I'm not going to click if I don't have to</h4>
         <br>
         <p>For a while, my friends and I played a mobile poker game. Every four hours, you could log in and collect free chips to use, and I immediately saw the potential of having something collect my chips automatically for me. Here is my first attempt, a casper.js headless browser script that would log in and press the button for me. Unfortunately, I was met with a "cannot reach the server right now" message. Undeterred, I tried catching the request that was being sent to their servers. I found that by skipping the game entirely and just sending the request, they would add the chips to my game account. By setting up a simple cron job to curl their servers every four hours, I have been collecting my free chips for months.</p>
       </div>
+    </div>
+    <div class="span3">
+      <img src="img/curl.png" width="100%"></img>
     </div>
     <div class="span9">
       <pre>var casper = require('casper').create({   
