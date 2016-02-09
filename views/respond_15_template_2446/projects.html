@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <style>
 .frame {
-    width: 100%;
-    height: 100%;
     border: 0;
-    -ms-transform: scale(0.25);
-    -moz-transform: scale(0.25);
-    -o-transform: scale(0.25);
-    -webkit-transform: scale(0.25);
-    transform: scale(0.25);
+    width: 200%;
+    -ms-transform: scale(0.60);
+    -moz-transform: scale(0.60);
+    -o-transform: scale(0.60);
+    -webkit-transform: scale(0.60);
+    transform: scale(0.60);
     
     -ms-transform-origin: 0 0;
     -moz-transform-origin: 0 0;
@@ -19,12 +18,6 @@
 </style>
 <html lang="en">
 <head>
-  <script src="jquery.js"></script> 
-    <script> 
-    $(function(){
-      $("#includedContent").load("/projectsFolder/members/index.html"); 
-    });
-    </script>
 <title>Ethan Honeycutt | Projects</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,31 +45,21 @@
 <div class="container">
   <hr>
   <div class="row">
-    <div class="span12">
-      <iframe class="frame" src="/projectsFolder/members/index.html" width="100%" height="100%"> </iframe>
+    <div class="span4">
+      <div class="well">
+        <h1>d3 Heatmaps</h1>
+        <h4>Data-Driven Documents</h4>
+        <br>
+        <p>In the past, I have put together visualizations for easily viewing lots of data using <a href ="https://d3js.org/">d3, a JavaScript framework for manipulating data</a>. After exporting database tables of customer data and transactions into TSV files, these graphics can be built as web pages through quantization and mapping. See what this looks like <a href="#">here</a>.</p>
+      </div>
+    </div>
+    <div class="span8">
+      <img src="img/heatmap.png"></img>
     </div>
   </div>
   <div class="row">
-    <div class="span4">
-      <h3>Deep Sky <small> By <a href="#">Srawat56</a></small></h3>
-      <a rel="lightbox" href="img/thumb1.jpg"><img src="img/thumb1.jpg" alt=""></a> </div>
-    <div class="span4">
-      <h3> Nature's Valley<small> By <a href="#">Paul venter</a></small> </h3>
-      <a rel="lightbox" href="img/thumb2.jpg"><img src="img/thumb2.jpg" alt=""></a></div>
-    <div class="span4">
-      <h3>Deep Sky <small> By <a href="#">Srawat56</a></small></h3>
-      <a rel="lightbox" href="img/thumb1.jpg"><img src="img/thumb1.jpg" alt=""></a> </div>
   </div>
   <div class="row">
-    <div class="span4">
-      <h3>Deep Sky <small> By <a href="#">Srawat56</a></small></h3>
-      <a rel="lightbox" href="img/thumb1.jpg"><img src="img/thumb1.jpg" alt=""></a> </div>
-    <div class="span4">
-      <h3> Nature's Valley<small> By <a href="#">Paul venter</a></small> </h3>
-      <a rel="lightbox" href="img/thumb2.jpg"><img src="img/thumb2.jpg" alt=""></a></div>
-    <div class="span4">
-      <h3>Deep Sky <small> By <a href="#">Srawat56</a></small></h3>
-      <a rel="lightbox" href="img/thumb1.jpg"><img src="img/thumb1.jpg" alt=""></a> </div>
   </div>
   <hr>
   <footer class="row">
