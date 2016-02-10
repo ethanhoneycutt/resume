@@ -23,6 +23,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/prism.css" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -71,7 +72,7 @@
       <img src="img/curl.png" width="100%"></img>
     </div>
     <div class="span9">
-      <pre>var casper = require('casper').create({   
+      <pre><code class="language-javascript">var casper = require('casper').create({   
     verbose: true, 
     logLevel: 'debug',
     pageSettings: {
@@ -117,7 +118,7 @@ casper.wait('15000', function() {
 
 });
 
-casper.run();</pre>
+casper.run();</code></pre>
     </div>
     <div class="span3">
       <img src="img/image2.png" width="100%"></img>
@@ -191,5 +192,6 @@ casper.run();</pre>
 <script src="js/jquery-ui-1.8.18.custom.min.js"></script>
 <script src="js/jquery.smooth-scroll.min.js"></script>
 <script src="js/lightbox.js"></script>
+<script src="js/prism.js"></script>
 </body>
 </html>
