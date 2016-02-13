@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<style>
+.frame {
+    border: 0;
+    width: 200%;
+    -ms-transform: scale(0.60);
+    -moz-transform: scale(0.60);
+    -o-transform: scale(0.60);
+    -webkit-transform: scale(0.60);
+    transform: scale(0.60);
+    
+    -ms-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+</style>
+<html lang="en">
+<head>
+<title>Ethan Honeycutt | Projects</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/prism.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="index"><span class="color-highlight">E</span>than Honeycutt</a>
+      <div class="nav-collapse">
+        <ul class="nav pull-right">
+          <li><a href="index">Home</a></li>
+          <li><a href="technologies">Technologies</a></li>
+          <li class="active"><a href="projects">Projects</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li><a href="about">About</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+<div class="container">
+  <hr>
+  <div id="heatmaps" class="row">
+    <div class="span4">
+      <div class="well">
+        <h1>d3 Heatmaps</h1>
+        <h4>Data-Driven Documents</h4>
+        <br>
+        <p>In the past, I have put together visualizations for easily viewing lots of data using <a target="_blank" href ="https://d3js.org/">d3, a JavaScript framework for manipulating data</a>. After exporting database tables of customer and transaction information into TSV files, these graphics can be built as web pages through quantization and mapping.</p>
+      </div>
+    </div>
+    <div class="span8">
+      <a rel="lightbox" href="img/heatmap.png">
+        <img src="img/heatmap.png"></img>
+      </a>
+    </div>
+  </div>
+  <hr>
+  <div id="poker" class="row">
+    <div class="span9">
+      <div class="well">
+        <h1>Poker Automation</h1>
+        <h4>I'm not going to click if I don't have to</h4>
+        <br>
+        <p>For a while, my friends and I played a mobile poker game. Every four hours, you could log in and collect free chips to use, and I immediately saw the potential of having something collect my chips automatically for me. Here is my first attempt, a casper.js headless browser script that would log in and press the button for me. Unfortunately, I was met with a "cannot reach the server right now" message. Undeterred, I tried catching the request that was being sent to their servers. I found that by skipping the game entirely and just sending the request, they would add the chips to my game account. By setting up a simple cron job to curl their servers every four hours, I have been collecting my free chips for months.</p>
+      </div>
+    </div>
+    <div class="span3">
+      <a rel="lightbox" href="img/curl.png">
+        <img src="img/curl.png" width="100%"></img>
+      </a>
+    </div>
+    <div class="span9">
+      <pre><code class="language-javascript">var casper = require('casper').create({   
+    verbose: true, 
+    logLevel: 'debug',
+    pageSettings: {
+        loadImages:  true,         // The WebPage instance used by Casper will
+        loadPlugins: true,         // use these settings
+      userAgent: 'Mozilla/5.0 (compatible, MSIE 11, Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko',
+    }
+});
+
+casper.start('http://www.facebook.com', function() {
+   this.fill('form#login_form', { 
+        email: email, 
+        pass:  password
+    }, true);
+});
+
+casper.thenOpen('http://playwsop.com/?utm_source=wsopcom&utm_medium=weblink_WSOPPoker_MobnSoc&utm_campaign=wsopcom_mobnSoc_weblink', function() {
+  this.capture('image2.png', {
+        top: 0,
+        left: 0,
+        width: 1920,
+        height: 1080
+    });
+});
+
+var linkSelector = 'div.lpcPText';
+
+casper.then(function() {
+    if (!this.exists(linkSelector)) return;
+    this.click(linkSelector);
+    this.evaluate(function(linkSelector) {
+        __utils__.findOne(linkSelector).setAttribute("className", "clicked");
+    }, linkSelector);
+});
+
+casper.wait('15000', function() {
+  this.capture('image3.png', {
+        top: 0,
+        left: 0,
+        width: 1920,
+        height: 1080
+    });
+
+});
+
+casper.run();</code></pre>
+    </div>
+    <div class="span3">
+      <img src="img/image2.png" width="100%"></img>
+    </div>
+    <div class="span3">
+      <p></p>
+    </div>
+    <div class="span3">
+      <img src="img/image3.png"></img>
+    </div>
+  </div>
+  <hr>
+  <div id="network" class="row">
+  </div>
+  <hr>
+  <div id="chat" class="row">
+    <div class="span4">
+      <div class="well">
+        <h1>Network Programming</h1>
+        <h4>Java implementations using sockets</h4>
+        <br>
+        <p>Looking for something a bit more tangible? I've written two Java programs that create connections between multiple machines and exchange information.</p>
+        <br>
+        <p>The <a target="_blank" href ="https://github.com/ethanhoneycutt/Socket-Chat-Program">first</a> is a chatroom server that multiple clients can connect to. Once a username is registered, a user can send messages to everyone in the room or a private message to another user. Messages are sent over socket connections, and the server will catch any errors that may occur.</p>
+        <br>
+        <p>The <a target="_blank" href="https://github.com/ethanhoneycutt/UDP-Connection-Program"> second </a>is a data exchange system where a client can send UDP packets to a server that will acknowledge if they were received, and respond appropriately if they were not.</p>
+      </div>
+    </div>
+    <div class="span4">
+      <a rel="lightbox" href="img/chat.PNG">
+        <img src="img/chat.PNG"></img>
+      </a>
+    </div>
+    <div class="span4">
+      <a rel="lightbox" href="img/udp.PNG">
+        <img src="img/udp.PNG"></img>
+      </a>
+    </div>
+  </div>
+  <hr>
+  <div id="shopify" class="row">
+    <div class="span12">
+      <div class="well">
+        <h1>Shopify API</h1>
+        <h4>CRM integration and Shopify as inventory management</h4>
+        <br>
+        <p>I've built three projects that interact with Shopify, touching nearly every part of their API.</p>
+        <br>
+        <p>The Shopify App Store is full of third-party applications that introduce functionality to store owners. However, Shopify does not inherently offer the ability to create bundles of products, and third-party apps don't yet offer a solution that either works or is affordable. So, I built one. An internal server stores what products belong in what bundles for a company, and every time an order changes, Shopify sends a webhook to the server. The server checks if any of the products in the order are a bundle, and replaces them with the appropriate products.</p>
+        <br>
+        <p>Another Shopify task I've put together is an automated system that exports a table of data from CRAM software netsuite, and updates customers in Shopify. If they already exist in Shopify, their data is updated, and if they do not exist, they are created. This is set to run as a cron job every hour, with a node script requesting a Netsuite restlet that I also wrote for the data, and then using Shopify's API to manipulate it accordingly.</p>
+        <br>
+        <p>Shopify also has an inbuilt reporting system for seeing statistics for products, customers, and transactions, but you have to be on at least their unlimited plan, which starts at $179 a month. To circumvent this, I built my own reporting system that accesses all of a shop's data and displays it in a helpful manner, providing the same functionality. These reports are compiled and delivered through an internal webserver, complete with user authentication with bcrypt and OAuth.</p>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div id="more" class="row">
+    <div class="span12">
+      <div class="well">
+        <h1>More Coming Soon!</h1>
+        <h4>Stay tuned for more projects I'm working on</h4>
+      </div>
+    </div>
+  </div>
+  <footer class="row">
+    <div>
+      <div class="span4">
+        <div class="is-padded">
+          <nav>
+            <h2>Navigation</h2>
+            <hr>
+            <ul>
+              <li><a href="index">Home</a></li>
+              <li><a href="technologies">Technologies</a></li>
+              <li class="active"><a href="projects">Projects</a></li>
+              <li><a href="contact">Contact</a></li>
+              <li><a href="about">About</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="span4">
+        <div class="is-padded">
+          <h2>Want to get in touch?</h2>
+          <hr>
+          <p>Here are two easy ways to get in contact with me:</p>
+          <br>
+          <ol>
+            <li><p>Shoot me an email at ethan.honeycutt@yahoo.com</p></li>
+            <li><p>Leave me a message on the Contact page of this site</p></li>
+          </ol>
+          <br>
+          <p>Let's start a conversation!</p>
+        </div>
+      </div>
+      <div class="span4">
+        <div class="is-padded">
+          <h2>This site</h2>
+          <hr>
+          <p>I built this personal website to create a professional presence online. It happily runs on a Node.js/Express backend, and it's built with Bootstrap to provide a seamless, responsive experience on all of your devices. Try it on mobile or a tablet!</p>
+        </div>
+      </div>
+    </div>
+    <p>2015 Ethan Honeycutt<br></p>
+  </footer>
+</div>
+<!-- /container -->
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/bootstrap-transition.js"></script>
+<script src="js/bootstrap-carousel.js"></script>
+<script src="js/bootstrap-alert.js"></script>
+<script src="js/bootstrap-modal.js"></script>
+<script src="js/bootstrap-dropdown.js"></script>
+<script src="js/bootstrap-scrollspy.js"></script>
+<script src="js/bootstrap-tab.js"></script>
+<script src="js/bootstrap-tooltip.js"></script>
+<script src="js/bootstrap-popover.js"></script>
+<script src="js/bootstrap-button.js"></script>
+<script src="js/bootstrap-collapse.js"></script>
+<script src="js/bootstrap-typeahead.js"></script>
+<script src="js/jquery-ui-1.8.18.custom.min.js"></script>
+<script src="js/jquery.smooth-scroll.min.js"></script>
+<script src="js/lightbox.js"></script>
+<script src="js/prism.js"></script>
+</body>
+</html>
