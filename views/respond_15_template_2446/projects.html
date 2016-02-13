@@ -51,7 +51,7 @@
         <h1>d3 Heatmaps</h1>
         <h4>Data-Driven Documents</h4>
         <br>
-        <p>In the past, I have put together visualizations for easily viewing lots of data using <a href ="https://d3js.org/">d3, a JavaScript framework for manipulating data</a>. After exporting database tables of customer and transaction information into TSV files, these graphics can be built as web pages through quantization and mapping.</p>
+        <p>In the past, I have put together visualizations for easily viewing lots of data using <a target="_blank" href ="https://d3js.org/">d3, a JavaScript framework for manipulating data</a>. After exporting database tables of customer and transaction information into TSV files, these graphics can be built as web pages through quantization and mapping.</p>
       </div>
     </div>
     <div class="span8">
@@ -135,7 +135,7 @@ casper.run();</code></pre>
     </div>
   </div>
   <hr>
-  <div id="asterisk" class="row">
+  <div id="network" class="row">
   </div>
   <hr>
   <div id="chat" class="row">
@@ -146,9 +146,9 @@ casper.run();</code></pre>
         <br>
         <p>Looking for something a bit more tangible? I've written two Java programs that create connections between multiple machines and exchange information.</p>
         <br>
-        <p>The <a href ="https://github.com/ethanhoneycutt/Socket-Chat-Program">first</a> is a chatroom server that multiple clients can connect to. Once a username is registered, a user can send messages to everyone in the room or a private message to another user. Messages are sent over socket connections, and the server will catch any errors that may occur.</p>
+        <p>The <a target="_blank" href ="https://github.com/ethanhoneycutt/Socket-Chat-Program">first</a> is a chatroom server that multiple clients can connect to. Once a username is registered, a user can send messages to everyone in the room or a private message to another user. Messages are sent over socket connections, and the server will catch any errors that may occur.</p>
         <br>
-        <p>The <a href="https://github.com/ethanhoneycutt/UDP-Connection-Program"> second </a>is a data exchange system where a client can send UDP packets to a server that will acknowledge if they were received, and respond appropriately if they were not.</p>
+        <p>The <a target="_blank" href="https://github.com/ethanhoneycutt/UDP-Connection-Program"> second </a>is a data exchange system where a client can send UDP packets to a server that will acknowledge if they were received, and respond appropriately if they were not.</p>
       </div>
     </div>
     <div class="span4">
@@ -173,12 +173,21 @@ casper.run();</code></pre>
         <br>
         <p>The Shopify App Store is full of third-party applications that introduce functionality to store owners. However, Shopify does not inherently offer the ability to create bundles of products, and third-party apps don't yet offer a solution that either works or is affordable. So, I built one. An internal server stores what products belong in what bundles for a company, and every time an order changes, Shopify sends a webhook to the server. The server checks if any of the products in the order are a bundle, and replaces them with the appropriate products.</p>
         <br>
-        <p>The <a href="https://github.com/ethanhoneycutt/UDP-Connection-Program"> second </a>is a data exchange system where a client can send UDP packets to a server that will acknowledge if they were received, and respond appropriately if they were not.</p>
+        <p>Another Shopify task I've put together is an automated system that exports a table of data from CRAM software netsuite, and updates customers in Shopify. If they already exist in Shopify, their data is updated, and if they do not exist, they are created. This is set to run as a cron job every hour, with a node script requesting a Netsuite restlet that I also wrote for the data, and then using Shopify's API to manipulate it accordingly.</p>
+        <br>
+        <p>Shopify also has an inbuilt reporting system for seeing statistics for products, customers, and transactions, but you have to be on at least their unlimited plan, which starts at $179 a month. To circumvent this, I built my own reporting system that accesses all of a shop's data and displays it in a helpful manner, providing the same functionality. These reports are compiled and delivered through an internal webserver, complete with user authentication with bcrypt and OAuth.</p>
       </div>
-    </div>
     </div>
   </div>
   <hr>
+  <div id="more" class="row">
+    <div class="span12">
+      <div class="well">
+        <h1>More Coming Soon!</h1>
+        <h4>Stay tuned for more projects I'm working on</h4>
+      </div>
+    </div>
+  </div>
   <footer class="row">
     <div>
       <div class="span4">
