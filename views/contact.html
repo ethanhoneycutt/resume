@@ -30,7 +30,7 @@
   <div class="row">
     <div class="span7">
       <h1>Contact</h1>
-      <form class="well" method="post" action="/send">
+      <form class="well" method="post" action="" id="sendmessage">
         <input type="text" class="span6" placeholder="Name" name="name" required>
         <input type="email" class="span6" placeholder="Email" name="email" required>
         <br>
@@ -39,6 +39,8 @@
         <textarea class="span6" placeholder="Message" name="message" required></textarea>
         <span class="help-block">&nbsp;</span>
         <button type="submit" class="btn">Send</button>
+        <br>
+        <p id="postresult"></p>
       </form>
     </div>
     <div class="span5">
@@ -108,5 +110,20 @@
 <script src="js/jquery-ui-1.8.18.custom.min.js"></script>
 <script src="js/jquery.smooth-scroll.min.js"></script>
 <script src="js/lightbox.js"></script>
+<script>
+$(function(){
+    $("form#sendmessage").submit(function(e){
+        e.preventDefault();
+        $.post(
+            "/send", 
+            $(this).serialize(), 
+            function(data){
+                //Your code to process returned data goes here
+                $("#postresult").text("Message Sent!");
+            }
+        );
+    });        
+});
+</script>
 </body>
 </html>
